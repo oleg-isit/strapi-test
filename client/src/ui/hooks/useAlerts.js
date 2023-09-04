@@ -14,7 +14,7 @@ const snackConfig = (snack, handleClose, variant, msg) => {
                 horizontal: 'right',
             },
             transitionDuration: {enter: 300, exit: 300},
-            autoHideDuration: 10000,
+            autoHideDuration: 5000,
             onClose: (event, reason) => {
                 handleClose(reason)
             },

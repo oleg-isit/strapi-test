@@ -37,7 +37,7 @@ I implemented authentication and authorization using JSON Web Tokens (JWT).
 For some reason, Strapi doesn't support refresh tokens out of the box, so I added this feature myself to extend Users and Permissions.
 
 
-### Token Lifetimes
+### Token Lifetimes (for testing)
 
 - **Access Token**: *1 minute*. In case of a 401 Unauthorized response from the server, the application will automatically refresh the tokens and make the request again for better security and user experience.
 

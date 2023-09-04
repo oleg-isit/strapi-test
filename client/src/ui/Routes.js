@@ -15,7 +15,6 @@ import {isAuthorizedSelector} from "../store/auth/selectors";
 export const Routes = React.memo(() => {
     const dispatch = useDispatch();
     const isAuth = useSelector(isAuthorizedSelector);
-    console.log(isAuth)
     useEffect(() => {
         if(isAuth === null) {
             dispatch(checkToken());

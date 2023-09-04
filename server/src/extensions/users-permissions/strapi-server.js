@@ -53,7 +53,6 @@ const issueRefreshToken = (payload, jwtOptions = {}) => {
 
 module.exports = (plugin) => {
   plugin.controllers.auth.callback = async (ctx) => {
-    console.log("AUTH")
     const provider = ctx.params.provider || 'local';
     const params = ctx.request.body;
     const store = strapi.store({ type: 'plugin', name: 'users-permissions' });
@@ -119,7 +118,6 @@ module.exports = (plugin) => {
     }
   }
   plugin.controllers.auth['refreshToken'] = async (ctx) => {
-    console.log("privet")
     const store = await strapi.store({ type: 'plugin', name: 'users-permissions' });
     const { refreshToken } = ctx.request.body;
     if (!refreshToken) {

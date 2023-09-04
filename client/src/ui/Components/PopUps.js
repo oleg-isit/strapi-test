@@ -64,7 +64,7 @@ export function EditPopUp({isOpen, active, setIsOpen}) {
     const status = useSelector(updateProductStatusSelector);
     const [name, setName] = useState("");
     const [description, setDescription] = useState("");
-
+    console.log(name, description, "compoen")
     useEffect(() => {
         if (active) {
             setName(active.name);
@@ -95,7 +95,9 @@ export function EditPopUp({isOpen, active, setIsOpen}) {
     const {handleSubmit, register, formState: {errors}} = useForm({
         resolver: yupResolver(schema),
     });
-    const onSubmit = ({name, description}) => {
+    const onSubmit = (data) => {
+        console.log(name, description, "submit")
+
         dispatch(updateProduct({id: active.id, name, description}));
     };
 

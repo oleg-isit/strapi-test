@@ -1,4 +1,4 @@
-# Your Project Name
+# Strapi test task
 ## Requirements
 - Node.js v16.14.0 (tested on v18 as well)
 - npm v8.19.2

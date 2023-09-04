@@ -75,8 +75,8 @@ logs
 results
 node_modules
 .node_history
-client/node_modules
-
+../client/node_modules
+../server/node_modules
 ############################
 # Tests
 ############################
@@ -90,6 +90,11 @@ coverage
 license.txt
 exports
 *.cache
-dist
-build
-.strapi-updater.json
+
+client/dist
+client/build
+server/dist
+server/build
+
+server/package-lock.json
+client/package-lock.json

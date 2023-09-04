@@ -27,15 +27,14 @@ const snackConfig = (snack, handleClose, variant, msg) => {
 export const useAlerts = () => {
     const {enqueueSnackbar, closeSnackbar} = useSnackbar();
     const message = useSelector(lastMessageSelector);
-
     useEffect(() => {
         if (message && message.type === "success") {
             snackConfig(enqueueSnackbar, closeSnackbar, "success", message.text)
         }
         if (message && message.type === "error") {
-            snackConfig(enqueueSnackbar, closeSnackbar, "error", message.text)
+            snackConfig(enqueueSnackbar, closeSnackbar, "error", message.text);
         }
-    })
+    }, [message])
 
 };
 

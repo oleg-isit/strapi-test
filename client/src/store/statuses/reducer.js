@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 import {login} from "../auth/actions";
-import {deleteProduct, updateProduct} from "../products/actions";
+import {deleteProduct, getAllProducts, updateProduct} from "../products/actions";
 
 
 export const initialState = {
@@ -19,8 +19,12 @@ export const statusesSlice = createSlice({
             const status = action.payload;
             state[status] = null;
         }
+
     },
     extraReducers: (builder) => {
+        builder.addCase(getAllProducts.rejected, (state, action) => {
+            state.lastMessage = {text: action.payload, type: "error"}
+        })
         builder.addCase(login.pending, (state, action) => {
             state.auth = "pending";
         })

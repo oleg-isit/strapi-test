@@ -1,13 +1,11 @@
-import { configureStore, combineReducers, getDefaultMiddleware } from '@reduxjs/toolkit'
-
+import {configureStore, combineReducers, getDefaultMiddleware} from '@reduxjs/toolkit'
+import {enableMapSet} from "immer";
 import auth from './auth/reducer';
 import content from './content/reducer';
 import statuses from './statuses/reducer';
 import products from './products/reducer';
 
-import {DispatchHelper} from "../utils/actionCreator";
-
-
+enableMapSet()
 const combinedReducer = combineReducers({
     auth, content, products, statuses
 })
@@ -16,7 +14,7 @@ const rootReducer = (state, action) => {
     return combinedReducer(state, action)
 }
 
-export const setupStore = () => {
+const setupStore = () => {
     const store = configureStore({
         reducer: rootReducer,
         middleware: getDefaultMiddleware({
@@ -24,10 +22,10 @@ export const setupStore = () => {
         })
     })
 
-    DispatchHelper.dispatch = store.dispatch
     return store
 }
 
+export const store = setupStore();
 
 
 

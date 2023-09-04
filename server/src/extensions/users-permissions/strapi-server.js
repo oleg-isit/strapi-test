@@ -1,10 +1,10 @@
 const utils = require('@strapi/utils');
-const { getService } = require('../users-permissions/utils');
+const { getService } = require('./utils');
 const jwt = require('jsonwebtoken');
 const _ = require('lodash');
 const {
   validateCallbackBody
-} = require('../users-permissions/controllers/validation/auth');
+} = require('./controllers/validation/auth');
 
 const { setMaxListeners } = require('process');
 const {options} = require("@strapi/plugin-users-permissions/server/content-types/user");

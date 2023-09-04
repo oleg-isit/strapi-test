@@ -37,7 +37,7 @@ export function Header() {
                         sx={{
                             ml: 2,
                             display: 'flex',
-                            fontSize: "35px",
+                            fontSize: "30px",
                             fontFamily: 'monospace',
                             fontWeight: 700,
                             letterSpacing: '.3rem',
@@ -67,7 +67,7 @@ export function Header() {
                     >
                         {headerContent.description}
                     </Typography>
-                    <Box sx={{minWidth: 350, width: "max-content", display: "flex", alignItems: "center"}}>
+                    <Box sx={{minWidth: 270, width: "max-content", display: "flex", alignItems: "center"}}>
                         {
                             userData && <>
                                 <Typography

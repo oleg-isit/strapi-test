@@ -1,14 +1,10 @@
 import {Provider} from "react-redux";
-import {setupStore} from "./store";
+import {store} from "./store";
 import {Routes} from "./ui/Routes";
-import {memo} from "react";
-import {
-    BrowserRouter as Router,
-} from "react-router-dom";
+import {BrowserRouter as Router} from "react-router-dom";
 import {SnackbarProvider} from "notistack";
 
-export const App = memo(() => {
-    const store = setupStore()
+export const App = () => {
     return <Provider store={store}>
         <SnackbarProvider maxSnack={3}>
             <Router>
@@ -16,5 +12,5 @@ export const App = memo(() => {
             </Router>
         </SnackbarProvider>
     </Provider>
-})
+}
 

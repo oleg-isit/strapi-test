@@ -1,7 +1,7 @@
-import { createSlice } from '@reduxjs/toolkit'
+import {createSlice} from '@reduxjs/toolkit'
 
 import {deleteProduct, getAllProducts, updateProduct} from './actions'
-import {arrToObj} from "../../utils/request/simple";
+import {arrToMap, arrToObj} from "../../utils/request/simple";
 
 export const initialState = {
     entities: null
@@ -13,16 +13,16 @@ export const productsSlice = createSlice({
     reducers: {},
     extraReducers: (builder) => {
         builder.addCase(getAllProducts.fulfilled, (state, action) => {
-            state.entities = arrToObj(action.payload.data.data);
+            state.entities = arrToMap(action.payload.data.data)
         })
         builder.addCase(deleteProduct.fulfilled, (state, action) => {
             const {id} = action.payload.data;
-            delete state.entities[id]
+            state.entities.delete(id)
         })
         builder.addCase(updateProduct.fulfilled, (state, action) => {
             const {id, name, description} = action.payload.data;
-            state.entities[id].attributes.name = name;
-            state.entities[id].attributes.description = description;
+            state.entities.get(id).attributes.name = name
+            state.entities.get(id).attributes.description = description
 
         })
     }

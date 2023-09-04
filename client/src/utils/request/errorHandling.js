@@ -1,7 +1,8 @@
 import { Request } from './index'
 import {API} from "../../api";
 import {resetAuth} from "../../store/auth/reducer";
-import {DispatchHelper} from "../actionCreator";
+import {store} from "../../store";
+
 
 export const handleError = async (error, acc, cfg, args) => {
   const { request, response } = error
@@ -16,9 +17,7 @@ export const handleError = async (error, acc, cfg, args) => {
             localStorage.setItem('token', res.jwt)
             localStorage.setItem('refreshToken', res.refreshToken)
           } catch (e) {
-            DispatchHelper.dispatch(resetAuth())
-            localStorage.removeItem('token')
-            localStorage.removeItem('refreshToken')
+            store.dispatch(resetAuth())
             return 'Auth is expired'
           }
           const res = { data: await Request(args) }

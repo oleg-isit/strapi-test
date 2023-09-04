@@ -43,3 +43,12 @@ For some reason, Strapi doesn't support refresh tokens out of the box, so I adde
 
 - **Refresh Token**: *2 minute*
 
+### Data
+```
+- Single Type
+    - Header - public
+```
+```
+- Collections
+    - Products - authorizated
+```
